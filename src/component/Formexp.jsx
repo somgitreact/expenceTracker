@@ -1,14 +1,9 @@
 import { useSnackbar } from 'notistack';
 import React, { useState } from 'react'
 
-const Formexp = ({onClose}) => {
+const Formexp = ({onClose, setEspenceData, espenceData, setTotalExp, expnc, setBalance }) => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar()
-    const [espenceData, setEspenceData] =useState({
-    title: "",
-    price: "",
-    category: "",
-    date: ""
-  })
+  
 
 
 //       const handleInput = (e)=>{
@@ -63,11 +58,15 @@ const handleInput = (e) => {
 
 const addExpnc = () => {
 
- if(!espenceData.title  &&  !espenceData.category  && !espenceData.date){
-   enqueueSnackbar("All field is Mandatory", { variant: "warning" })
- // alert("All field is Mandatory")
+ if (
+  !espenceData.title ||
+  !espenceData.category ||
+  !espenceData.date ||
+  !espenceData.price
+) {
+  enqueueSnackbar("All fields are mandatory", { variant: "warning" });
   return;
- }
+}
 
   const storedBalance = Number(localStorage.getItem("balance"));
   const price = Number(espenceData.price);
@@ -94,12 +93,15 @@ const addExpnc = () => {
 
 
   const remainingBalance = storedBalance - price;
+ setBalance(remainingBalance)
   localStorage.setItem("balance", remainingBalance);
 
+    
 
   const oldExpenses = JSON.parse(localStorage.getItem("expenses")) || [];
   let nowT = Date.now() + Math.random().toString(36).substring(2, 9);
   oldExpenses.push({...espenceData, id:nowT});
+   setTotalExp([...expnc, {...espenceData, id:nowT}]) 
   localStorage.setItem("expenses", JSON.stringify(oldExpenses));
 
 
@@ -131,7 +133,12 @@ enqueueSnackbar("Expences Added to your list", { variant: "success" })
                 <option value="Travel"> Travel</option>
                 <option value="Education"> Education</option>
             </select>  
-            <input type='date'  name="date"  className='date' placeholder='title' value={espenceData.date} onChange={handleInput} />
+            <input
+  type="date"
+  name="date"
+  value={espenceData.date || ""}
+  onChange={handleInput}
+/>
         </div>
         <div className='btnwrp'>
              <button  type="submit" className='addbth' onClick={addExpnc}>Add Expense</button>

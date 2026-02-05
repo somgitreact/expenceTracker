@@ -1,7 +1,7 @@
 import { useSnackbar } from 'notistack'
 import React, { useState } from 'react'
 
-const FormAddBal = ({onClose}) => {
+const FormAddBal = ({onClose,  setBalance}) => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar()
   const [addbal, setAddbal] =useState("")
   const handleInput = (value)=>{
@@ -21,6 +21,7 @@ const FormAddBal = ({onClose}) => {
      // console.log(storedBalance);
       const newTotal = Number(storedBalance) + Number(addbal);
       //console.log(newTotal);    
+       setBalance(newTotal)
        localStorage.setItem("balance", newTotal);
         setAddbal("");
         enqueueSnackbar("Balance added", { variant: "success" })

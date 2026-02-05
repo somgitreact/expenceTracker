@@ -4,18 +4,32 @@ import RecentExpence from '../component/RecentExpence'
 import Topexpence from '../component/Topexpence'
 
 const ExpencetrackerPage = () => {
-    const [totalExp, setTotalExp]= useState();
+      const [totalExp, setTotalExp] = useState(() => {
+  try {
+    return JSON.parse(localStorage.getItem("expenses")) || [];
+  } catch {
+    return [];
+  }
+});
       const [topexpnc, setTopexpnc] = useState([])
-     
+       const [espenceData, setEspenceData] =useState({
+    title: "",
+    price: "",
+    category: "",
+    date: ""
+  })
            const catall = [...new Set(totalExp?.map(item => item.category))]  
        //console.log(catall);
 
-   useEffect(()=>{
-     const storage = ()=>{
-     setTotalExp( JSON.parse(localStorage.getItem('expenses')) ) 
-     }
-     storage()
-   },[])
+  //  useEffect(()=>{
+  //    const storage = ()=>{
+  //    setTotalExp( JSON.parse(localStorage.getItem('expenses')) ) 
+  //    }
+  //    storage()
+  //  },[])
+  useEffect(() => {
+  localStorage.setItem("expenses", JSON.stringify(totalExp));
+}, [totalExp]);
    //console.log(totalExp);
 
          useEffect(()=>{
@@ -38,7 +52,7 @@ console.log("show topexp", topexpnc);
   return (
     <div className=' flex-1 flex flex-col'>
            <h1>Expense Tracker</h1>
-           <Mainexpence expnc={totalExp} catall={catall} topexpnc={topexpnc}/>
+           <Mainexpence expnc={totalExp} setTotalExp={setTotalExp} espenceData={espenceData} setEspenceData={setEspenceData} catall={catall} topexpnc={topexpnc}/>
            <div className=' flex gap-2 flex-1 flex-wrap justify-between '>
             <RecentExpence expnc={totalExp} /> <Topexpence topexpnc={topexpnc}/>
            </div>
