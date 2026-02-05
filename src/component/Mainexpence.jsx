@@ -55,10 +55,10 @@ const sumExpance = topexpnc.reduce((previousValue, currentValue) => previousValu
 
 
 
-        <Cardbox cssstyle="bg-linear-to-r from-lime-200 to-lime-500  text-gray-900 " btnTxt="Add Income" clkHand={() => openHandler('balance')}>
+        <Cardbox cssstyle="bg-linear-to-r from-lime-200 to-lime-500  text-gray-900 " btnTxt="+ Add Income" clkHand={() => openHandler('balance')}>
            <div className='txtclass'>Wallet Balance : <span className='subtxt'>₹ {localStorage.getItem("balance")}</span></div>
         </Cardbox>
-        <Cardbox cssstyle="bg-linear-to-r from-rose-200 to-rose-500  text-gray-900" btnTxt="Add Expence" clkHand={() => openHandler('expense')}>
+        <Cardbox cssstyle="bg-linear-to-r from-rose-200 to-rose-500  text-gray-900" btnTxt="+ Add Expense" clkHand={() => openHandler('expense')}>
            <div className='txtclass'>Expence : <span className='subtxt'>₹ {sumExpance}</span></div>
         </Cardbox>
         <div className='rounded-md h-[200px] w-full md:w-[30%] object-cover justify-center flex'>

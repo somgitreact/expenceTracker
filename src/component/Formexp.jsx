@@ -120,10 +120,10 @@ enqueueSnackbar("Expences Added to your list", { variant: "success" })
   }
   return (
     <div className=' text-amber-950'>
-        <h3 className=' text-3xl font-bold'>Add Expence</h3>
+        <h3 className=' text-3xl font-bold'>Add Expense</h3>
         <div className='inputwrp'>
             <input  name="title" type='text' className='input' placeholder='title' value={espenceData.title} onChange={handleInput}  />
-            <input name="price"  type='number' className='number' placeholder='price' value={espenceData.price} onChange={handleInput} />
+            <input name="price"  type='number' className='number' placeholder='Expense' value={espenceData.price} onChange={handleInput} />
             <select  id=""  name="category" onChange={handleInput}>
                 <option value="">Select Category</option>
                 <option value="Food"> Food</option>
