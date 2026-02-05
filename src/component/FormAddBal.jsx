@@ -35,7 +35,7 @@ const FormAddBal = ({onClose}) => {
      <div className=' text-amber-950'>
          <h3 className=' text-3xl font-bold'>Add Balence</h3>
          <div className='inputwrp'>
-             <input type='text' className='input' placeholder='Income Amount' value={addbal} onChange={(e)=>handleInput(e.target.value)}  />
+             <input type='number' className='input' placeholder='Income Amount' value={addbal} onChange={(e)=>handleInput(e.target.value)}  />
          </div>
          <div className='btnwrp'>
              <button type="submit" className='addbth' onClick={addBalence}>Add Balence</button>

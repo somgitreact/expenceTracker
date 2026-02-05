@@ -21,7 +21,7 @@ const RecentExpence = ({expnc}) => {
    }
   return (
     <div  className='flex-1 w-full md:w-[60%]'>
-        <h2>recent Expences</h2>
+        <h2>Recent Transactions</h2>
          <div className='p-3.5 flex-1  bg-amber-50 flex py-2 text-lime-950 rounded-md'>
            <ul className='overscroll-y-auto w-full '>
               

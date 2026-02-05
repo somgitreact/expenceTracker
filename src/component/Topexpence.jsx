@@ -21,7 +21,7 @@ const Topexpence = ({topexpnc}) => {
 
   return (
     <div className=' w-full md:w-[30%]'>
-        <h2>Top Expences</h2>
+        <h2>Top Expenses</h2>
         <div className=' bg-amber-50 p-3.5 flex-1 rounded-sm'>
             <ul className='overscroll-y-auto'>
                {topexpnc?.map((item) => {
