@@ -38,7 +38,7 @@ const FormAddBal = ({onClose}) => {
              <input type='number' className='input' placeholder='Income Amount' value={addbal} onChange={(e)=>handleInput(e.target.value)}  />
          </div>
          <div className='btnwrp'>
-             <button type="submit" className='addbth' onClick={addBalence}>Add Balence</button>
+             <button type="submit" className='addbth' onClick={addBalence}>Add Balance</button>
              <button className='canbtn' onClick={closeHanler}>Cancel</button>
          </div>
      </div>

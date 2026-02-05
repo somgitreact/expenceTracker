@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React  from 'react'
 
 const RecentExpence = ({expnc}) => {
 
@@ -28,7 +28,7 @@ const RecentExpence = ({expnc}) => {
               {expnc?.map((item) => {
                        return(
                    <li key={item.id} className='flex py-2 border-amber-950 border-b items-center'>
-                    <div className=' grow px-2'>{item.category}</div>
+                    <div className=' grow px-2'>{item.title} <br/> <span className=' text-gray-500 '>{item.date}</span></div>
                     <div className=''>
                         {item.price} 
                         <button className='dlt'><span className='rounded-full border-amber-950 border w-7 h-7' onClick={()=>deleteHandler(item.id)} >X</span></button>
