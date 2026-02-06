@@ -1,6 +1,6 @@
 import React  from 'react'
 
-const RecentExpence = ({expnc}) => {
+const RecentExpence = ({expnc, setTotalExp, balance, setBalance}) => {
 
 
      
@@ -12,10 +12,13 @@ const RecentExpence = ({expnc}) => {
    }
       const deleteHandler = (id)=>{
         const itmedit = expnc?.find((item) => item.id == id)
-        localStorage.setItem('balance', Number(localStorage.getItem('balance')) + Number(itmedit.price) )
+        let newBal=  balance + Number(itmedit.price)
+        setBalance(newBal)
+        localStorage.setItem('balance', newBal )
+        //Number(localStorage.getItem('balance')) + Number(itmedit.price)
         const itemDlt = expnc?.filter((item) => item.id !== id)
-      
-        localStorage.setItem('expenses', JSON.stringify(itemDlt) )
+      setTotalExp(itemDlt)
+       // localStorage.setItem('expenses', JSON.stringify(itemDlt) )
  
     
    }

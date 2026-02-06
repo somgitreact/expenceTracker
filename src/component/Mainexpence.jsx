@@ -6,19 +6,13 @@ import ModalCus from './ModalCus';
 import Formexp from './Formexp';
 import FormAddBal from './FormAddBal';
 
-const Mainexpence = ({topexpnc, espenceData, setEspenceData, setTotalExp, expnc}) => {
+const Mainexpence = ({topexpnc, espenceData, setEspenceData, setTotalExp, expnc, balance, setBalance}) => {
   console.log("========", espenceData);
   
      const [isOpen, setIsOpen] = useState(false);
 const [modalType, setModalType] = useState(null);
 const [pieData, setPieData] = useState([]);
-const [balance, setBalance] = useState(() =>
-  Number(localStorage.getItem("balance")) || 7000
-);
 
-useEffect(() => {
-  localStorage.setItem("balance", balance);
-}, [balance]);
 const openHandler = (type) => {
   setModalType(type);
   setIsOpen(true);

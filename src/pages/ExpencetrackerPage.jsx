@@ -11,6 +11,11 @@ const ExpencetrackerPage = () => {
     return [];
   }
 });
+const [balance, setBalance] = useState(() =>
+  Number(localStorage.getItem("balance")) || 7000
+);
+
+
       const [topexpnc, setTopexpnc] = useState([])
        const [espenceData, setEspenceData] =useState({
     title: "",
@@ -18,6 +23,9 @@ const ExpencetrackerPage = () => {
     category: "",
     date: ""
   })
+  useEffect(() => {
+  localStorage.setItem("balance", balance);
+}, [balance]);
            const catall = [...new Set(totalExp?.map(item => item.category))]  
        //console.log(catall);
 
@@ -52,9 +60,9 @@ console.log("show topexp", topexpnc);
   return (
     <div className=' flex-1 flex flex-col'>
            <h1>Expense Tracker</h1>
-           <Mainexpence expnc={totalExp} setTotalExp={setTotalExp} espenceData={espenceData} setEspenceData={setEspenceData} catall={catall} topexpnc={topexpnc}/>
+           <Mainexpence balance={balance} setBalance={setBalance} expnc={totalExp} setTotalExp={setTotalExp} espenceData={espenceData} setEspenceData={setEspenceData} catall={catall} topexpnc={topexpnc}/>
            <div className=' flex gap-2 flex-1 flex-wrap justify-between '>
-            <RecentExpence expnc={totalExp} /> <Topexpence topexpnc={topexpnc}/>
+            <RecentExpence expnc={totalExp} setTotalExp={setTotalExp} balance={balance} setBalance={setBalance}/> <Topexpence topexpnc={topexpnc}/>
            </div>
     </div>
   )
