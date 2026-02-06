@@ -13,7 +13,7 @@ const Mainexpence = ({topexpnc, espenceData, setEspenceData, setTotalExp, expnc}
 const [modalType, setModalType] = useState(null);
 const [pieData, setPieData] = useState([]);
 const [balance, setBalance] = useState(() =>
-  Number(localStorage.getItem("balance")) || 0
+  Number(localStorage.getItem("balance")) || 7000
 );
 
 useEffect(() => {
