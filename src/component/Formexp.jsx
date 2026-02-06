@@ -101,7 +101,7 @@ const addExpnc = () => {
   const oldExpenses = JSON.parse(localStorage.getItem("expenses")) || [];
   let nowT = Date.now() + Math.random().toString(36).substring(2, 9);
   oldExpenses.push({...espenceData, id:nowT});
-   setTotalExp([...expnc, {...espenceData, id:nowT}]) 
+   setTotalExp(prev=>[...prev, {...espenceData, id:nowT}]) 
   localStorage.setItem("expenses", JSON.stringify(oldExpenses));
 
 

@@ -21,7 +21,7 @@ const FormAddBal = ({onClose,  setBalance}) => {
      // console.log(storedBalance);
       const newTotal = Number(storedBalance) + Number(addbal);
       //console.log(newTotal);    
-       setBalance(newTotal)
+       setBalance(prev=> Number(prev) + Number(addbal))
        localStorage.setItem("balance", newTotal);
         setAddbal("");
         enqueueSnackbar("Balance added", { variant: "success" })

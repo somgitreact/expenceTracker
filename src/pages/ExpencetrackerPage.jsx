@@ -12,7 +12,7 @@ const ExpencetrackerPage = () => {
   }
 });
 const [balance, setBalance] = useState(() =>
-  Number(localStorage.getItem("balance")) || 7000
+  Number(localStorage.getItem("balance")) || 5000
 );
 
 
